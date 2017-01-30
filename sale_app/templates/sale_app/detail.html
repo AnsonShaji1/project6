@@ -1,0 +1,18 @@
+{% extends 'sale_app/base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if user == post.author %}
+    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk%}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+    <p><h2>{{ post.title }}</h2></p>
+    <div>
+        {% if post.image %}
+        <img src='{{post.image.url}}'>
+        {% endif %}
+    </div><br />
+    <p>Description : {{ post.text }}</p>
+    <p>published date : {{ post.pub_date }}</p>
+    <p>Owner: {{ post.author }}
+</div>
+{% endblock %}
