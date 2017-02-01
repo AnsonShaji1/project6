@@ -3,9 +3,12 @@ from .models import Post
 from .forms import PostForm
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
+from PIL import Image
+from django.conf import settings
 
 def post_list(request):
     posts=Post.objects.all()
+    
     return render(request,'sale_app/index.html',{'posts':posts})
     
 
@@ -20,6 +23,8 @@ def post_new(request):
         form=PostForm(request.POST or None,request.FILES or None)
         if form.is_valid():
             post=form.save(commit=False)
+            #img=Image.open(infile)
+            #post.image=img.thumbnail((256,128))
             post.author=request.user
             post.pub_date=timezone.now()
             post.save()

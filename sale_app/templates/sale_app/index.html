@@ -7,12 +7,13 @@
             <a href ="{% url 'post_detail' pk=post.id %}"><h2>{{ post.title }}</h2></a><p></p>
             <div>
                 {% if post.image %}
-                <img src='{{post.image.url}}'>
+                <img src='{{post.image.url}}' width=300px >
                 {% endif %}
             </div>
             <br /><p>Description : {{ post.text }}</p>
             <p>published date : {{ post.pub_date }}</p>
             <p>Owner:{{ post.author }}</p>
+            <p><br /></p>
         </div>
 
     {% endfor %}
