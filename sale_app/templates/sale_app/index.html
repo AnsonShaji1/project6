@@ -7,7 +7,7 @@
             <a href ="{% url 'post_detail' pk=post.id %}"><h2>{{ post.title }}</h2></a><p></p>
             <div>
                 {% if post.image %}
-                <img src='{{post.image.url}}' width=300px >
+                <img src='{{post.image.url}}' width=300px height=150>
                 {% endif %}
             </div>
             <br /><p>Description : {{ post.text }}</p>
